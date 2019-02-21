@@ -1,6 +1,4 @@
-import os
-THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
-my_file = os.path.join(THIS_FOLDER, 'data.txt')
+
 #initial global/building wide variables
 global rWall, rWindow
 rWall = 21
