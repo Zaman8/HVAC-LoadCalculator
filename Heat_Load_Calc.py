@@ -1,3 +1,6 @@
+import os
+THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+my_file = os.path.join(THIS_FOLDER, 'data.txt')
 #initial global/building wide variables
 global rWall, rWindow
 rWall = 21
@@ -17,7 +20,7 @@ class Zone: #create class Zone with variables for each potiental heat load influ
     machineWatt = []
 
     def calHeatLoad(self): #calculate heat load of the entire zone
-            heatload = self.Area
+            heatload = self.Area * 31.25
             for i in range(len(self.wallSA)):
                 heatload+=(int(self.wallSA[i]) * int(self.tempDif[i]))/rWall
             for i in range(len(self.windowSA)):
