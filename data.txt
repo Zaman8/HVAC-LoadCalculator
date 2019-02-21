@@ -1,17 +1,17 @@
 Zone 1:
 RoomLength:
-
+5
 RoomWidth:
-
+5
 WallSA's:
-
-TempDifs:
-
+3, 7
+tempDifs:
+-5, 2
 WindowSA's:
-
-wTempDifs:
-
+5
+wtempDifs:
+-25
 Persons:
-
-MachineWatts:
-
+6
+machineWatts:
+15, 19
