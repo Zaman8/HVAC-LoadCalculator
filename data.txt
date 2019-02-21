@@ -1,0 +1,17 @@
+Zone 1:
+RoomLength:
+
+RoomWidth:
+
+WallSA's:
+
+TempDifs:
+
+WindowSA's:
+
+wTempDifs:
+
+Persons:
+
+MachineWatts:
+
