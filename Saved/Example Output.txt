@@ -1,0 +1,4 @@
+Estimated Heating Load is 4371 BTU/hr
+
+Heat Load for Zones:
+Zone 1: 4371
