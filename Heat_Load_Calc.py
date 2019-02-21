@@ -1,8 +1,5 @@
-
 #initial global/building wide variables
-global rWall, rWindow
-rWall = 21
-rWindow = 1
+global rWall, rWindow, levelHeight
 Zones = []
 buildingload = 0
 
@@ -20,22 +17,21 @@ class Zone: #create class Zone with variables for each potiental heat load influ
     def calHeatLoad(self): #calculate heat load of the entire zone
             heatload = self.Area * 31.25
             for i in range(len(self.wallSA)):
-                heatload+=(int(self.wallSA[i]) * int(self.tempDif[i]))/rWall
+                heatload+=(self.wallSA[i] * self.tempDif[i])/rWall
             for i in range(len(self.windowSA)):
-                heatload+=(int(self.windowSA[i]) * int(self.wtempDif[i]))/rWindow
+                heatload+=(self.windowSA[i] * self.wtempDif[i])/rWindow
             heatload+=int(self.Persons)*600
-            intMachineWatts = map(int, self.machineWatt) #convert strings in machineWatt to list of ints 
-            heatload+=sum(intMachineWatts)*3.4
+            heatload+=sum(self.machineWatt)*3.4
             return heatload
     
-    def __init__(self, Area, wallSA, tempDif, windowSA, wtempDif, Persons, machineWatt): #initialize each variable to data from txt file
+    def __init__(self, Area, wallLengths, tempDif, windowSA, wtempDif, Persons, machineWatt): #initialize each variable to data from txt file
         self.Area = Area
-        self.wallSA = wallSA
-        self.tempDif = tempDif
-        self.windowSA = windowSA
-        self.wtempDif = wtempDif
+        self.wallSA = list(map(lambda x: x*levelHeight, map(int, wallLengths))) #multply each wall length by the height of the level to get SA
+        self.tempDif = list(map(int, tempDif)) #convert wall temps to ints
+        self.windowSA =  list(map(int, windowSA)) #convert window SA to list of ints
+        self.wtempDif = list(map(int, wtempDif)) #convert window temps to ints
         self.Persons = Persons
-        self.machineWatt = machineWatt
+        self.machineWatt = list(map(int, machineWatt)) #convert machine watts to ints
         self.heatload = self.calHeatLoad()
       
 
@@ -54,20 +50,25 @@ except FileNotFoundError:
     input()
     exit()
 
+rWall=int(data[1]) #assign global values
+rWindow=int(data[3]) #placement is hard coded from data.txt
+levelHeight=int(data[5])
 
 for i in range(len(data)):
     if data[i][:4] == "Zone": #find start of each Zone section
-        Zones.append(Zone(int(data[i+2])*int(data[i+4]), data[i+6].split(","), data[i+8].split(','), data[i+10].split(','), data[i+12].split(','), data[i+14], data[i+16].split(',') ))
-
+        #print(data[i+6].split(','))
+        Zones.append(Zone(int(data[i+2])*int(data[i+4]), data[i+6].split(','), data[i+8].split(','), data[i+10].split(','), data[i+12].split(','), data[i+14], data[i+16].split(',') ))
+        #enter all data to create a new Zone, will automaticaly call calHeatLoad at end of init
 
 for i in Zones:
     buildingload += i.getHeatLoad()
 
 print("Estimated Heating Load is " + str(int(buildingload)) + " BTU/hr");
 print("\nHeat Load for Zones:")
+j=1
 for i in Zones:
-    j=1
     print("Zone " + str(j) + ": " + str(int(i.getHeatLoad())))
+    j+=1
 
 input()
 
