@@ -1,3 +1,4 @@
+import os.path
 #initial global/building wide variables
 global rWall, rWindow, levelHeight
 Zones = []
@@ -78,13 +79,15 @@ global f #initialize f so all levels have access to file
 while True:
     print("Output to file? y/n")
     ans = input()
+    
     if(ans.lower() == "y" or ans.lower() == "yes"):
         print("enter file name")
         file=input()
         try:
-            f = open(file+".txt", "w+")
-        except:
+            f = open("Saved\\" +file+".txt", "w")
+        except FileExistsError:
             print("Something went wrong, please try again")
+            
         f.write("Estimated Heating Load is " + str(int(buildingload)) + " BTU/hr\n\nHeat Load for Zones:")
         j=1
         for i in Zones:
@@ -92,12 +95,13 @@ while True:
             j+=1
         f.close()
         break
+    
     elif(ans.lower() == "n" or ans.lower() == "no"):
         print("Exiting...")
-        input()
         exit()
     else:
         print("invalid input")
+        
 print("file sucessfully saved")
 input()
 exit()
