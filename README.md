@@ -15,20 +15,27 @@ Command line Python script for estimating the heat load of a zoned building in B
 </p>
 
 <h1>data.txt format</h1>
-<p>Zone 1: </br>
-RoomLength: </br>
+<p>Wall R value: </br>
+21 </br>
+Window R Value: </br>
+1 </br>
+Level Height(ft): </br>
+10 </br>
+(The above block must be placed at the beginning of the file and in this order) </br></br>
+Zone 1: </br>
+Room Length (ft): </br>
 _int_ </br>
-RoomWidth: </br>
+Room Width (ft): </br>
 _int_ </br>
-WallSA's: </br>
-_int_, _int_, ... </br>
-tempDifs: </br>
-_int_, _int_, ... (same length as WallSA's required) </br>
-WindowSA's: </br>
-_int_, _int_, ... </br>
-wtempDifs: </br>
-_int_, _int_, ... (same length as WindowSA's required) </br>
+Wall Lengths (ft): </br>
+_int_ _int_, ... </br>
+tempDifs (F):  (length must match Wall Lengths)</br>
+_int_ _int_, ...</br>
+Window SA(ft): </br>
+_int_ _int_, ...</br>
+wtempDifs (F):  (length must match Window SA)</br>
+_int_ _int_, ... </br>
 Persons: </br>
 _int_ </br>
-machineWatts: </br>
-_int_, _int_, ... </br> </p>
+Machine Watts: </br>
+_int_ _int_, ...</p>
