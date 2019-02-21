@@ -1,4 +1,3 @@
-import os.path
 #initial global/building wide variables
 global rWall, rWindow, levelHeight
 Zones = []
