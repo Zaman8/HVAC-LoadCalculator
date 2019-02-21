@@ -1,17 +1,24 @@
+Wall R value:
+21
+Window R Value:
+1
+Level Height(ft):
+10
+
 Zone 1:
-RoomLength:
+Room Length (ft):
 5
-RoomWidth:
+Room Width (ft):
 5
-WallSA's:
+Wall Length (ft):
 3, 7
-tempDifs:
+tempDifs (F):
 -5, 2
-WindowSA's:
+Window SA(ft):
 5
-wtempDifs:
+wtempDifs (F):
 -25
 Persons:
 6
-machineWatts:
+Machine Watts:
 15, 19
