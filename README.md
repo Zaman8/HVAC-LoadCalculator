@@ -12,6 +12,8 @@ Command line Python script for estimating the heat load of a zoned building in B
 600 BTU/(hr * Person) </br>
 3.4 BTU/watt </br>
 
+All walls and windows have the same R value </br>
+
 </p>
 
 <h1>data.txt format</h1>
