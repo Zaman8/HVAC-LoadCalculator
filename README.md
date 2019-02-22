@@ -8,7 +8,7 @@ Command line Python script for estimating the heat load of a zoned building in B
   Takes input from the data.txt file, must be in that specific form. More zones may be added as needed, but each zone must have the same spacing as the example
   
 <h1>Assumptions We're Making</h1>
-<p>31.25 BTU/m^2 </br>
+<p>31.25 BTU/ft^2 </br>
 600 BTU/(hr * Person) </br>
 3.4 BTU/watt </br>
 
@@ -16,11 +16,11 @@ Command line Python script for estimating the heat load of a zoned building in B
 
 <h1>data.txt format</h1>
 <p>Wall R value: </br>
-21 </br>
+_int_ </br>
 Window R Value: </br>
-1 </br>
+_int_ </br>
 Level Height(ft): </br>
-10 </br>
+_int_ </br>
 (The above block must be placed at the beginning of the file and in this order) </br></br>
 Zone 1: </br>
 Room Length (ft): </br>
